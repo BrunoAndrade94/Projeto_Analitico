@@ -1,6 +1,10 @@
 <template>
 	<div class="login">
 		<div class="login-usuario">
+			<i
+				class="pi pi-user"
+				style="margin-right: 5px; font-size: 1rem"
+			></i>
 			<InputText
 				type="text"
 				v-model="login_usuario"
@@ -8,6 +12,7 @@
 			/>
 		</div>
 		<div class="login-senha">
+			<i class="pi pi-key" style="margin-right: 5px; font-size: 1rem"></i>
 			<InputText
 				type="password"
 				v-model="login_senha"
@@ -15,7 +20,9 @@
 			/>
 		</div>
 		<div class="botao-login">
-			<Button label="Acessar" :disabled="desabilitar_botao" />
+			<router-link to="home">
+				<Button label="Acessar" :disabled="desabilitar_botao" />
+			</router-link>
 		</div>
 		<h3 class="clique-aqui">
 			Problemas no acesso?
@@ -35,6 +42,18 @@ export default {
 			login_senha: null,
 			desabilitar_botao: true,
 		};
+	},
+	watch: {
+		login_usuario() {
+			if (this.login_usuario.length > 0 && this.login_senha.length > 0) {
+				this.desabilitar_botao = false;
+			} else this.desabilitar_botao = true;
+		},
+		login_senha() {
+			if (this.login_usuario.length > 0 && this.login_senha.length > 0) {
+				this.desabilitar_botao = false;
+			} else this.desabilitar_botao = true;
+		},
 	},
 };
 </script>
