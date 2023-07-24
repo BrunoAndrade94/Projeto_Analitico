@@ -1,0 +1,31 @@
+@import "./base.css";
+
+#App {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	height: 100vh;
+	display: grid;
+	grid-template-rows: 50px 1fr 40px;
+	grid-template-columns: 300px 1fr;
+	grid-template-areas:
+		"header header"
+		"content content"
+		"footer footer";
+}
+
+a,
+.green {
+	text-decoration: none;
+	color: hsla(160, 100%, 37%, 1);
+	transition: 0.4s;
+}
+
+@media (hover: hover) {
+	a:hover {
+		background-color: hsla(160, 100%, 37%, 0.2);
+	}
+}
+
+@media (min-width: 1024px) {
+}
